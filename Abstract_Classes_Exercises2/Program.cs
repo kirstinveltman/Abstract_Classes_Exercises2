@@ -23,24 +23,35 @@ namespace Abstract_Classes_Exercises2
             employees.Add(new Employee() { FirstName = "Kamala", LastName = "Khan", Id = 1240 });
 
             // foreach loop
+            List<Employee> namedJoe = new List<Employee>();
+
             foreach (Employee employee in employees)
             {
                 if (employee.FirstName == "Joe")
                 {
-                    Console.WriteLine(employee.FirstName + " " + employee.LastName);
+                    namedJoe.Add(employee);
                 }
             }
 
-            // lambda expression for "Joe"
-            foreach (Employee employee in employees.FindAll(x => x.FirstName == "Joe"))
+            foreach (Employee j in namedJoe)
             {
-                Console.WriteLine(employee.FirstName + " " + employee.LastName);
+                Console.WriteLine(j.FirstName + " " + j.LastName);
             }
 
-            //// lambda expression for > 5
-            foreach (Employee employee in employees.FindAll(x => x.Id > 5))
+            // lambda expression for "Joe"
+            List<Employee> namedJoe = employees.Where(x => x.FirstName == "Joe").ToList();
+
+            foreach (Employee j in namedJoe)
             {
-                Console.WriteLine(employee.FirstName + " " + employee.LastName);
+                Console.WriteLine(j.FirstName + " " + j.LastName);
+            }
+
+            // lambda expression for > 5
+            List<Employee> namedJoe = employees.Where(x => x.Id > 5).ToList();
+
+            foreach (Employee j in namedJoe)
+            {
+                Console.WriteLine(j.FirstName + " " + j.LastName);
             }
             Console.ReadLine();
         }
